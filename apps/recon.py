@@ -207,13 +207,13 @@ def recon(opt, use_rect=False):
                 save_path = '%s/%s/recon/result_%s_%d.obj' % (opt.results_path, opt.name, test_data['name'], opt.resolution)
 
                 print(save_path)
-                gen_mesh(opt.resolution, netMR, cuda, test_data, save_path, components=opt.use_compose)
+                gen_mesh_imgColor(opt.resolution, netMR, cuda, test_data, save_path, components=opt.use_compose)
             else:
                 for j in range(test_dataset.get_n_person(i)):
                     test_dataset.person_id = j
                     test_data = test_dataset[i]
                     save_path = '%s/%s/recon/result_%s_%d.obj' % (opt.results_path, opt.name, test_data['name'], j)
-                    gen_mesh(opt.resolution, netMR, cuda, test_data, save_path, components=opt.use_compose)
+                    gen_mesh_imgColor(opt.resolution, netMR, cuda, test_data, save_path, components=opt.use_compose)
 
 def reconWrapper(args=None, use_rect=False):
     opt = parser.parse(args)
